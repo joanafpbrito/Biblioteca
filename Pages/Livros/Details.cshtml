@@ -33,7 +33,7 @@
             @Html.DisplayNameFor(model => model.Livro.UserID)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Livro.UserID)
+            @(Model.Livro.Utilizador == null ? "Disponível" : Model.Livro.Utilizador.Nome)
         </dd>
     </dl>
 </div>

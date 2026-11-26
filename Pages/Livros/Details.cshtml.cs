@@ -12,9 +12,9 @@ namespace Biblioteca.Pages_Livros
 {
     public class DetailsModel : PageModel
     {
-        private readonly Biblioteca.Data.BibliotecaContext _context;
+        private readonly BibliotecaContext _context;
 
-        public DetailsModel(Biblioteca.Data.BibliotecaContext context)
+        public DetailsModel(BibliotecaContext context)
         {
             _context = context;
         }
@@ -28,7 +28,9 @@ namespace Biblioteca.Pages_Livros
                 return NotFound();
             }
 
-            var livro = await _context.Livro.FirstOrDefaultAsync(m => m.LivroID == id);
+            var livro = await _context.Livro
+                .Include(l => l.Utilizador)
+                .FirstOrDefaultAsync(m => m.LivroID == id);
 
             if (livro is not null)
             {

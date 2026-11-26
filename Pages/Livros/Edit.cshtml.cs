@@ -36,6 +36,12 @@ namespace Biblioteca.Pages_Livros
                 return NotFound();
             }
             Livro = livro;
+
+            ViewData["UserID"] = new SelectList(
+                _context.Utilizador,
+                "UserID",
+                "Nome"
+            );
             return Page();
         }
 

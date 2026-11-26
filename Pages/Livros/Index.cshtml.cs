@@ -12,9 +12,9 @@ namespace Biblioteca.Pages_Livros
 {
     public class IndexModel : PageModel
     {
-        private readonly Biblioteca.Data.BibliotecaContext _context;
+        private readonly BibliotecaContext _context;
 
-        public IndexModel(Biblioteca.Data.BibliotecaContext context)
+        public IndexModel(BibliotecaContext context)
         {
             _context = context;
         }
@@ -23,7 +23,9 @@ namespace Biblioteca.Pages_Livros
 
         public async Task OnGetAsync()
         {
-            Livro = await _context.Livro.ToListAsync();
+            Livro = await _context.Livro
+                .Include(l => l.Utilizador)
+                .ToListAsync();
         }
     }
 }
