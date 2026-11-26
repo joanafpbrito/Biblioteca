@@ -38,6 +38,10 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Livro.LivroID">Edit</a> |
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Livro.LivroID">Edit</a>
+        <span>|</span>
+    }
     <a asp-page="./Index">Back to List</a>
 </div>

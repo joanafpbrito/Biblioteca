@@ -2,10 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Biblioteca.Data;
 using Microsoft.AspNetCore.Identity;
+using Biblioteca.Pages.Utilizadores;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+    {
+        options.Conventions.AuthorizeFolder("/Utilizadores");
+        options.Conventions.AllowAnonymousToPage("/Utilizadores/Index");
+        options.Conventions.AllowAnonymousToPage("/Utilizadores/Details");
+        options.Conventions.AuthorizeFolder("/Livros");
+        options.Conventions.AllowAnonymousToPage("/Livros/Index");
+        options.Conventions.AllowAnonymousToPage("/Livros/Details");
+    }
+);
 builder.Services.AddDbContext<BibliotecaContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BibliotecaContext") ?? throw new InvalidOperationException("Connection string 'BibliotecaContext' not found.")));
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
