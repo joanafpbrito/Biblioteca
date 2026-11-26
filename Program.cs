@@ -10,6 +10,13 @@ builder.Services.AddDbContext<BibliotecaContext>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<BibliotecaContext>();
+    context.Database.Migrate();      // cria/atualiza a BD automaticamente
+    SeedData.Initialize(context);    // insere dados de exemplo
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
