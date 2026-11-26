@@ -1,0 +1,54 @@
+@page
+@model Biblioteca.Pages_Livros.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro[0].Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro[0].Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro[0].DataLancamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro[0].UserID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Livro) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLancamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.LivroID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.LivroID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.LivroID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
