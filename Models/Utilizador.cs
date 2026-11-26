@@ -9,7 +9,7 @@ public class Utilizador
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     [Display (Name = "NIF")]
-    public int NCC {get;set;}
+    public int UserID {get;set;}
     public string Nome {get;set;} = string.Empty;
 
     [Display(Name = "Contacto")]
