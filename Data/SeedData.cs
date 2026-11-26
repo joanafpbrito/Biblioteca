@@ -10,12 +10,12 @@ public static class SeedData
         if (context.Utilizador.Any()) return;
 
         context.Utilizador.AddRange(
-            new Utilizador { UserID = 694623598, Nome = "João Matias",     Tel = 916790229 },
-            new Utilizador { UserID = 812345602, Nome = "Maria Fernandes", Tel = 923456789 },
-            new Utilizador { UserID = 923456712, Nome = "Pedro Santos",    Tel = 911234567 },
-            new Utilizador { UserID = 734567823, Nome = "Ana Ribeiro",     Tel = 934567890 },
-            new Utilizador { UserID = 845678933, Nome = "Rui Carvalho",    Tel = 913456123 },
-            new Utilizador { UserID = 956789045, Nome = "Sofia Almeida",   Tel = 926789012 }
+            new Utilizador { UserID = 694623598, Nome = "João Matias",     Tel = "916790229" },
+            new Utilizador { UserID = 812345602, Nome = "Maria Fernandes", Tel = "923456789" },
+            new Utilizador { UserID = 923456712, Nome = "Pedro Santos",    Tel = "911234567" },
+            new Utilizador { UserID = 734567823, Nome = "Ana Ribeiro",     Tel = "934567890" },
+            new Utilizador { UserID = 845678933, Nome = "Rui Carvalho",    Tel = "913456123" },
+            new Utilizador { UserID = 956789045, Nome = "Sofia Almeida",   Tel = "926789012" }
         );
         context.SaveChanges();
 

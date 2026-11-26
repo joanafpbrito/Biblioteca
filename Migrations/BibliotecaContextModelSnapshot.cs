@@ -53,8 +53,9 @@ namespace Biblioteca.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Tel")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Tel")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserID");
 

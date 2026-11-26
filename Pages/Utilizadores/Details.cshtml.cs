@@ -28,7 +28,9 @@ namespace Biblioteca.Pages_Utilizadores
                 return NotFound();
             }
 
-            var utilizador = await _context.Utilizador.FirstOrDefaultAsync(m => m.UserID == id);
+            var utilizador = await _context.Utilizador
+                .Include(u => u.Livros)
+                .FirstOrDefaultAsync(m => m.UserID == id);
 
             if (utilizador is not null)
             {

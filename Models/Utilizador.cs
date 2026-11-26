@@ -13,8 +13,8 @@ public class Utilizador
     public string Nome {get;set;} = string.Empty;
 
     [Display(Name = "Contacto")]
-    [RegularExpression(@"^2\d{8}$", ErrorMessage = "O contacto deve ter 9 dígitos e começar por 9.")]
-    public int Tel {get;set;}
+    [RegularExpression(@"^9\d{8}$", ErrorMessage = "O contacto deve ter 9 dígitos e começar por 9.")]
+    public string Tel {get;set;} = string.Empty;
    
     public ICollection<Livro> Livros { get; set; } = new List<Livro>();
 }
