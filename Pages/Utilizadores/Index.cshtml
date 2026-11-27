@@ -17,6 +17,12 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Utilizador[0].Nome)
+                <span>
+                    <a asp-page="./Index" asp-route-Ordem="@(Model.Ordem = "nome_asc")" class="btn"><span>A-Z</span></a>
+                </span>
+                <span>
+                    <a asp-page="./Index" asp-route-Ordem="@(Model.Ordem = "nome_desc")" class="btn"><span>Z-A</span></a>
+                </span>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Utilizador[0].Tel)
@@ -29,6 +35,7 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
+                <span></span>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tel)
